@@ -1,12 +1,14 @@
 <?php
 
-$inputstr[]= explode(" ",strtolower(readline()));
-$outputstr[]=0;
-foreach($inputstr as $letter){
-  if($letter === "a"||"o"||"y"||"e"||"u"||"i")
-  continue;
-else 
-$outputstr[$letter] = ".{$letter}";
-}
+$inputstr = strtolower(readline());
+$characters = str_split($inputstr);
 
-echo $result = implode("",$outputstr);
+foreach($characters as $letter){
+  if($characters[$letter] == 'a'||'o'||'y'||'e'||'u'||'i')
+    continue;
+  else  
+ $characters[$letter] = ".{$characters[$letter]}";
+}
+echo implode($inputstr);
+
+
