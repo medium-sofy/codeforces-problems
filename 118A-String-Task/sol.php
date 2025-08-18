@@ -1,14 +1,13 @@
 <?php
+// Second try: Monday, 18th-Aug-2025 - 11:40pm
 
-$inputstr = strtolower(readline());
-$characters = str_split($inputstr);
+$characters = str_split(strtolower(readline()));
+$vowels = 'aouyei';
+$characters = array_filter($characters, fn($char) => !str_contains($vowels, $char));
 
-foreach($characters as $letter){
-  if($characters[$letter] == 'a'||'o'||'y'||'e'||'u'||'i')
-    continue;
-  else  
- $characters[$letter] = ".{$characters[$letter]}";
-}
-echo implode($inputstr);
+// foreach($characters as $index => $character){
+//  $characters[$index] = ".{$characters[$index]}";
+// }
 
-
+$characters = array_map(fn($char) => ".{$char}", $characters);
+echo implode($characters);
